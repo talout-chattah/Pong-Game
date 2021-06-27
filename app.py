@@ -52,27 +52,31 @@ score.write("Player 1: 0 Player 2: 0", align="center", font=("Courier", 24, "nor
 
 # functions
 def paddle1_up():
-    y = paddle1.ycor()
-    y += 20
-    paddle1.sety(y)
+    if paddle1.ycor() < 240:
+        y = paddle1.ycor()
+        y += 20
+        paddle1.sety(y)
 
 
 def paddle1_down():
-    y = paddle1.ycor()
-    y -= 20
-    paddle1.sety(y)
+    if paddle1.ycor() > -240:
+        y = paddle1.ycor()
+        y -= 20
+        paddle1.sety(y)
 
 
 def paddle2_up():
-    y = paddle2.ycor()
-    y += 20
-    paddle2.sety(y)
+    if paddle2.ycor() < 240:
+        y = paddle2.ycor()
+        y += 20
+        paddle2.sety(y)
 
 
 def paddle2_down():
-    y = paddle2.ycor()
-    y -= 20
-    paddle2.sety(y)
+    if paddle2.ycor() > -240:
+        y = paddle2.ycor()
+        y -= 20
+        paddle2.sety(y)
 
 
 # keyboard bindings
@@ -99,6 +103,7 @@ while True:
         ball.sety(-290)
         ball.dy *= -1
 
+    # score counters
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
